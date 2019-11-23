@@ -9,7 +9,7 @@ export default function Characters() {
 
     const didUpdate = () => {
         axios
-            .get()
+            .get('https://swapi.co/api/people/?page=1')
             .then(response => {
                 setCharacterList(response.data.results);
                 console.log(response.data.results);
