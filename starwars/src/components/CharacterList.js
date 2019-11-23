@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import CharacterCard from './CharacterCard';
+import { Container, Row } from "reactstrap";
 
 import './StarWars.css';
 
@@ -20,10 +21,13 @@ export default function Characters() {
     useEffect(didUpdate, []);
 
     return(
-        <div className='character-container'>
-            {characterList.map(character => {
-                return <CharacterCard character={character} key={character.name} />;
-            })}
-        </div>
+        <Container className='character-container'>
+            <Row>
+                {characterList.map(character => {
+                    return <CharacterCard character={character} key={character.name} />;
+                })}
+            </Row>
+        </Container>
+
     );
 }
