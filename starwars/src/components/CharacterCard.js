@@ -10,8 +10,8 @@ export default function CharacterCard({ character }) {
                     <CardHeader>{character.name}</CardHeader>
                     <CardBody>
                         <CardText>Birth Year: {character.birth_year}</CardText>
-                        <CardText>Height: {character.height} cm</CardText>
-                        <CardText>Mass: {character.mass} kg</CardText>
+                        <CardText>Height: {character.height}cm</CardText>
+                        <CardText>Mass: {character.mass}kg</CardText>
                         <CardText>Eye Color: {character.eye_color}</CardText>
                         <CardText>Hair Color: {character.hair_color}</CardText>
                         {/* <p>Films:</p>
