@@ -10,6 +10,8 @@ export default function Characters() {
     const [characterList, setCharacterList] = useState([]);
     // page numbers to change current page
     const [pageNumber, setPageNumber] = useState('1');
+    const [prev, setPrev] = useState('null');
+    const [next, setNext] = useState('null');
 
     const didUpdate = () => {
         axios
@@ -17,6 +19,8 @@ export default function Characters() {
             .get(`https://swapi.co/api/people/?page=${pageNumber}`)
             .then(response => {
                 setCharacterList(response.data.results);
+                setPrev(response.data.previous);
+                setNext(response.data.next);
                 console.log(response.data.results);
             })
             .catch(error => console.log(error))
@@ -28,7 +32,7 @@ export default function Characters() {
     return(
         <Container className='character-container'>
             {/* add buttons to page */}
-            <Buttons setPageNumber={setPageNumber} pageNumber={pageNumber} />
+            <Buttons setPageNumber={setPageNumber} pageNumber={pageNumber} prev={prev} next={next} />
             <Row>
                 {/* character card creation */}
                 {/* Character list is mapped over to give each character their own card */}
