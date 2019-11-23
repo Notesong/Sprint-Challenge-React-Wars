@@ -7,6 +7,9 @@ export default function CharacterCard({ character }) {
         <Col xs='12' md='6' lg='3'>
             <div className='character-card'>
                 <Card>
+                    {/* create the character's card */}
+                    {/* all of the character attributes received through props from CharacterList */}
+                    {/* margins added in StarWars.css */}
                     <CardHeader>{character.name}</CardHeader>
                     <CardBody>
                         <CardText>Birth Year: {character.birth_year}</CardText>

@@ -30,7 +30,8 @@ export default function Characters() {
             {/* add buttons to page */}
             <Buttons setPageNumber={setPageNumber} pageNumber={pageNumber} />
             <Row>
-                {/* character list creation */}
+                {/* character card creation */}
+                {/* Character list is mapped over to give each character their own card */}
                 {characterList.map(character => {
                     return <CharacterCard character={character} key={character.name} />;
                 })}
