@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import CharacterCard from './CharacterCard';
-import { Container, Row } from "reactstrap";
+import Buttons from './Buttons';
+import { Container, Row, Button } from "reactstrap";
 
 import './StarWars.css';
 
 export default function Characters() {
     const [characterList, setCharacterList] = useState([]);
+    const [pageNumber, setPageNumber] = useState('1');
 
     const didUpdate = () => {
         axios
-            .get('https://swapi.co/api/people/?page=1')
+            .get(`https://swapi.co/api/people/?page=${pageNumber}`)
             .then(response => {
                 setCharacterList(response.data.results);
                 console.log(response.data.results);
@@ -18,16 +20,18 @@ export default function Characters() {
             .catch(error => console.log(error))
     }
 
-    useEffect(didUpdate, []);
+    useEffect(didUpdate, [pageNumber]);
 
     return(
-        <Container className='character-container'>
-            <Row>
-                {characterList.map(character => {
-                    return <CharacterCard character={character} key={character.name} />;
-                })}
-            </Row>
-        </Container>
-
+        <div className='page-container'>
+            <Container className='character-container'>
+                <Buttons setPageNumber={setPageNumber} pageNumber={pageNumber} />
+                <Row>
+                    {characterList.map(character => {
+                        return <CharacterCard character={character} key={character.name} />;
+                    })}
+                </Row>
+            </Container>
+        </div>
     );
 }
