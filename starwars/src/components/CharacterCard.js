@@ -12,7 +12,7 @@ export default function CharacterCard({ character }) {
             <p>Films:</p>
             <ul>
                 {character.films.map(film => {
-                    return <Film film={film} key={film} />;
+                    return <Film filmLink={film} key={film} />;
                 })}
             </ul>
         </div>
