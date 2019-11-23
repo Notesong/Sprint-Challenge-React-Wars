@@ -10,8 +10,8 @@ export default function Characters() {
     const [characterList, setCharacterList] = useState([]);
     // page numbers to change current page
     const [pageNumber, setPageNumber] = useState('1');
-    const [prev, setPrev] = useState('null');
-    const [next, setNext] = useState('null');
+    const [prev, setPrev] = useState(null);
+    const [next, setNext] = useState(null);
 
     const didUpdate = () => {
         axios
